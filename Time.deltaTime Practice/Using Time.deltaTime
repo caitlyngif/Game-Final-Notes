@@ -1,0 +1,38 @@
+using UnityEngine;
+
+public class Turret : MonoBehaviour{
+    float AttackPeriod = 1f;
+    float TimeUntilNextAttack;
+
+    void Update(){
+        TimeUntilNextAttack -= Time.deltaTime;
+        if (TimeUntilNextAttack <= 0){
+            Shoot(){
+                TimeUntilNextAttack = AttackPeriod;
+            }
+        }    
+    }
+
+    void Shoot(){
+        Debug.Log("Shooting one bullet");
+    }
+}
+
+/*
+
+On 60 FPS: Time.deltaTime = 1/60
+On 30 FPS: Time.deltaTime = 1/30
+
+Shoot is called on the first frame.
+
+After Shoot(), TimeUntilNextAttack is set to 1.
+It lowers by 1/60 every frame on 60 FPS.
+It lowers by 1/30 every frame on 30 FPS.
+
+It takes 60 frames to get back to 0 on 60 FPS (60 seconds)
+It takes 30 frames to get back to 0 on 30 FPS (60 seconds).
+
+It takes 60 seconds to get back to 0 and call Shoot() on 60 FPS.
+It takes 60 seconds to get back to 0 and call Shoot() on 30 FPS.
+
+*/

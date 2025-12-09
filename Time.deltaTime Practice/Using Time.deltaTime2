@@ -1,0 +1,26 @@
+using UnityEngine;
+
+public class Gravity : MonoBehaviour{
+    [SerializeField] GameObject ball;
+    [SerializeField] int speed;
+
+    void Update(){
+        // value is the amount that we should lower the ball this frame
+        float value = ???;
+        Drop(ball, value);
+    }
+
+    void Drop(GameObject ball, float value){
+        // lower ball by value units
+    }
+}
+
+/*
+
+float value = Time.deltaTime * speed
+
+By using Time.deltaTime * speed, we drop the ball every frame by a fraction of speed based on the frame rate.
+If the frame rate is higher, Time.deltaTime is smaller, so the fraction is smaller.
+    Drops by less per frame on higher frames, and more per frame on lower frames.
+
+*/

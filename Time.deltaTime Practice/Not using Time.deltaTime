@@ -18,3 +18,17 @@ public class Turret : MonoBehaviour{
         Debug.Log("Shooting one bullet");
     }
 }
+
+/*
+
+Shoot() is called on the first frame, then TimeUntilNextAttack is set to 6.
+Shoot() is called again once TimeUntilNextAttack = 0.
+
+AttackPeriod (6) is lowered by 0.1 every frame.
+To get back down to 0, it will take 60 frames.
+
+Therefore, Shoot() is called every 60 frames.
+On 60 FPS: Shoot() is called every 1 second.
+On 30 FPS: Shoot() is called every 2 seconds.
+
+*/
