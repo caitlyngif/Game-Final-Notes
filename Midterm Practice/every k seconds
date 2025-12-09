@@ -1,0 +1,32 @@
+/*
+
+The following machine prints every k seconds. What is k if the frame rate is 60 fps?
+
+*/
+using UnityEngine;
+
+public class Machine:MonoBehaviour{
+
+    float speed = 0.1f;
+    float wait = 3f;
+    float timeRemaining;
+
+    void FixedUpdate(){
+        timeRemaining -= speed;
+            if(timeRemaining <= 0){
+                Print();
+                timeRemaining =  wait;
+            }
+    }
+}
+
+/*
+
+FixedUpdate() is called every 0.02 seconds (50 times per second).
+timeRemaining starts at 3 seconds.
+timeRemaining is lowered by 0.1 every FixedUpdate() call.
+To get back down to 0, it will take 30 FixedUpdate() calls.
+Therefore, Print() is called every 30 FixedUpdate() calls.
+At 50 FixedUpdate() calls per second, 30 calls takes 0.6 seconds
+
+*/

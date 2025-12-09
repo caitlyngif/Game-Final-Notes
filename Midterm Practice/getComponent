@@ -1,0 +1,36 @@
+/*
+There are two GameObjects in the scene, called Player and Backpack. 
+Script Character.cs is attached to Player and script Inventory is attached to Backpack. 
+For any missing classes, assume they are elsewhere and not MonoBehaviour.
+
+Fill in the blank such that the code runs with no compile errors.
+
+*/
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Character: MonoBehaviour{
+
+    [SerializeField] GameObject backpack;
+    [SerializeField] string name;
+
+        public void Drop(Item item){
+            inventory = // ????;
+            inventory.Remove(item);
+        }
+}
+
+public class Inventory: MonoBehaviour{
+
+    [SerializeField] List<Item> items;
+
+    public void Remove(Item item){
+        items.Remove(item);
+    }
+}
+
+/*
+
+inventory = backpack.GetComponent<Inventory>();
+
+*/

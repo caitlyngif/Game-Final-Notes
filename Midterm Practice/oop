@@ -1,0 +1,43 @@
+/* 
+
+What is the output of the program?
+
+*/
+
+using System;
+using System.Collections.Generic;
+public class Room{
+    public Door door { get; set; }
+ 
+    public void Enter(Character c){
+        door.Open();
+        c.WalkIn();
+        door.Close();
+    }
+                     
+}
+ 
+public class Door{
+    public void Open(){Console.WriteLine("Open!");}
+    public void Close(){Console.WriteLine("Close!");}
+}
+ 
+public class Character{
+    public void WalkIn(){
+        Console.WriteLine("I'm walking here!");
+    }
+}
+ 
+public class Program{
+    public static void Main(string[] args){
+        var room = new Room();
+        room.Enter(new Character());
+    }
+}
+
+/*
+
+The output will be a runtime error (null reference exception) because the door property of Room is never initialized, 
+so when Enter() tries to call Open() on it, it will throw an error.
+
+*/
