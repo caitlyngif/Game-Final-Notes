@@ -1,0 +1,35 @@
+using UnityEngine;
+using UnityEngine.AI;
+
+public class MyNavMeshAgentController : MonoBehaviour
+{
+    private NavMeshAgent navMeshAgent;
+
+    void Start()
+    {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+
+        // Subscribe to events
+        navMeshAgent.destinationReached += OnDestinationReached;
+        navMeshAgent.pathChanged += OnPathChanged;
+        navMeshAgent.stuck += OnStuck;
+    }
+
+    void OnDestinationReached()
+    {
+        // Code to execute when the destination is reached
+        Debug.Log("Destination reached!");
+    }
+
+    void OnPathChanged(NavMeshPath path)
+    {
+        // Code to execute when the navigation path changes
+        Debug.Log("Path changed!");
+    }
+
+    void OnStuck()
+    {
+        // Code to execute when the agent is stuck
+        Debug.Log("Agent stuck!");
+    }
+}

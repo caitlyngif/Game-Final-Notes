@@ -1,0 +1,28 @@
+/* 
+
+Fill in the blank with only one statement such that the code runs with no compile errors.
+
+*/
+using UnityEngine;
+
+public class Cell: MonoBehaviour{
+
+           [SerializeField] bool locked;
+           [SerializeField] Key keyName;
+
+           //Open the chest if the key component attached to obj is the same as this component's key
+           public void Unlock(GameObject obj){
+                     Key key // ???
+;
+                     if(key.Equals(keyName))
+                              locked = false;
+           }
+}
+
+public class Key: MonoBehaviour{}
+
+/*
+
+Key key = obj.GetComponent<Key>();
+
+*/
