@@ -1,0 +1,38 @@
+public class MotionDetector: MonoBehaviour{
+    float waitTime = 5f;
+    float waiting;
+    bool light;
+    public void Detect(){
+        light = true;
+        waiting = waitTime;
+    }
+    void Update(){
+        if(light){
+            if(waiting > 0)
+            {
+                // ??
+            }
+            else
+                light = false;
+        }                 
+    }
+}
+
+/*
+
+We use the following code for a motion sensor. If motion is detected, the light turns on. We then wait 5 seconds and turn off the light. Fill in the blank so the code runs independent of the frame rate.
+
+When Detect() runs,
+light = true
+waiting set to waitTime (5)
+
+We want the light to stay on for 5 real time seconds, not 5 frames.
+For 60 FPS, this means we want 60*5 = 300 Update() calls, or frames
+On 60 FPS, Update() is called every frame which is every 1/60 seconds.
+
+Decrease waiting by Time.DeltaTime every frame means:
+    waiting decreases by 1/60 every frame
+    It takes 300 frames to go from 5 to 0.
+
+Answer: waiting -= Time.deltaTime;
+*/

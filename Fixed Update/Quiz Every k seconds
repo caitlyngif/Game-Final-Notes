@@ -1,0 +1,37 @@
+using UnityEngine;
+
+public class Machine : MonoBehaviour
+{
+    float speed = 0.1f;
+    float wait = 3f;
+    float timeRemaining;
+
+    void FixedUpdate()
+    {
+        timeRemaining -= speed;
+        if (timeRemaining <= 0)
+        {
+            Print();
+            timeRemaining = wait;
+        }
+    }
+
+    void Print()
+    {
+        Debug.Log("Print");
+    }
+}
+
+/*
+
+The following machine prints every k seconds. What is k if the frame rate is 60 fps?
+
+FixedUpdate() runs every 0.02 seconds.
+timeRemaining originally 3.
+In every call, timeRemaining is decreased by 0.1.
+Print() is called when timeRemaining reaches 0.
+
+This takes 30 calls to FixedUpdate() to get from 3 to 0.
+30 * 0.02 seconds = 0.6 seconds
+
+*/

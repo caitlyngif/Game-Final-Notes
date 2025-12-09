@@ -7,9 +7,8 @@ public class Turret : MonoBehaviour{
     void Update(){
         TimeUntilNextAttack -= Time.deltaTime;
         if (TimeUntilNextAttack <= 0){
-            Shoot(){
+            Shoot();
                 TimeUntilNextAttack = AttackPeriod;
-            }
         }    
     }
 

@@ -21,3 +21,15 @@ public class Machine : MonoBehaviour
         Debug.Log("Print");
     }
 }
+
+/*
+
+The following machine prints every k seconds. What is k if on 60 FPS?
+
+Print() called on the first frame.
+timeRemaining set to 3 seconds.
+Lowers by 0.1 per frame.
+Takes 30 frames to get to 0 and call Print() again.
+On 60 FPS, 30 frames takes 0.5 seconds.
+
+*/

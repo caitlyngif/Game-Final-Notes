@@ -8,9 +8,8 @@ public class Turret : MonoBehaviour{
     void Update(){
         TimeUntilNextAttack -= speed;
         if (TimeUntilNextAttack <= 0){
-            Shoot(){
-                TimeUntilNextAttack = AttackPeriod;
-            }
+            Shoot();
+            TimeUntilNextAttack = AttackPeriod;
         }    
     }
 

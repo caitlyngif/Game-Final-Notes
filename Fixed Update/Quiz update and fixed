@@ -1,0 +1,28 @@
+using UnityEngine;
+
+public class Checker:MonoBehaviour{
+    [SerializeField] string hi = "Hi";
+    [SerializeField] string bye = "Bye";
+
+    void Update(){
+        Debug.Log(hi);
+    }
+
+    void FixedUpdate(){
+        Debug.Log(bye);
+    }
+}
+
+/*
+
+Consider the following code. If the frame rate is always 40, 
+which of the following options represents the output to the console during 2 consecutive frames of the game?
+
+Update() called every frame which is every 1/40 seconds which is 0.02.
+At t = 0.00, Bye
+At t = 0.02, Bye
+    At t = 0.025, Hi
+At t = 0.04, Bye
+    At t = 0.05, Hi
+
+*/
