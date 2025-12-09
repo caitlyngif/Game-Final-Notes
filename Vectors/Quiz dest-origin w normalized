@@ -1,0 +1,49 @@
+using UnityEngine;
+
+public class Zombie : MonoBehaviour
+{
+    public GameObject player;
+    bool detectedPlayer;
+    bool tooFar;
+    public float speed;
+
+    private void Update()
+    {
+        if (detectedPlayer) {
+            if (tooFar){
+                var dir = GetDirection();
+                //move the zombie in the direction of dir
+            }else
+            {
+                //attack the player
+            }
+        }
+    }
+    private Vector3 GetDirection()
+    {
+        return (Blank);
+    }
+}
+
+/*
+We are implementing a zombie game where if a zombie detects the player, that is, detectedPlayer is true, 
+the zombie chases the player at a constant speed, that is, speed. 
+Fill in the blank to calculate the direction in which the zombie should move. 
+Note that the zombie’s movement speed is independent of the distance of the zombie from the player.
+
+(player.transform.position - transform.position).normalized
+
+Normalized so that direction has magnitude 1, meaning movement speed is constant.
+GetDirection() is only concerned with direction, not movement speed
+It should be used with speed and deltaTime outside this function.
+
+*/
+/*
+Fill in the rest of if(TooFar)
+
+if(tooFar){
+    var dir = GetDirection();
+    transform.position += dir * speed * Time.deltaTime;
+}
+
+*/

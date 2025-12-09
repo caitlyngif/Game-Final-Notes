@@ -1,0 +1,11 @@
+using UnityEngine;
+using System.Collections;
+
+public class ExampleClass : MonoBehaviour
+{
+    void Update()
+    {
+        // Move the object forward along its z axis 1 unit/second.
+        Transform.position += transform.forward * Time.deltaTime;
+    }
+}

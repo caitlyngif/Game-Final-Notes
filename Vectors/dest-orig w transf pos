@@ -1,0 +1,26 @@
+using UnityEngine;
+
+public class Dart : MonoBehaviour
+{
+    Transform board;
+    float speed;
+    private void Update()
+    {
+        Blank
+    }
+}
+
+/*
+
+We want to throw a dart towards a board at a constant speed and without the influence of gravity.
+Which of the following options should be written in the blank to achieve this?
+
+Answer: transform.position += speed * Time.deltaTime * (board.position - transform.position).normalized;
+
+moves the dart to the board at a constant speed, regardless of frame rate
+Destination - Origin
+
+Normalized because if not, when the dart's far away from the board, the dart would go extremely fast to the board. 
+    if the dart was close, it would be extremely slow to the board.
+
+*/

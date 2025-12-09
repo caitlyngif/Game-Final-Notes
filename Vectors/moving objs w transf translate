@@ -1,0 +1,15 @@
+using UnityEngine;
+using System.Collections;
+
+public class ExampleClass : MonoBehaviour
+{
+    void Update()
+    {
+        // Move the object forward along its z axis 1 unit/second.
+        transform.Translate(Vector3.forward * Time.deltaTime); // moves object forward relative to where its facing, not the world
+
+        // Move the object upward in world space 1 unit/second.
+        transform.Translate(Vector3.up * Time.deltaTime, Space.World); // moves object upward relative to the world, 
+                                                                       // regardless of whether the object is rotated (its up is not up)
+    }
+}

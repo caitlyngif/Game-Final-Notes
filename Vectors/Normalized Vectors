@@ -1,0 +1,38 @@
+/*
+
+When moving straight:
+    horizontal: (5,0)
+    vertical: (0,5)
+    Each has magnitude of 5
+
+But when you walk diagonally (W+D):
+    (5,0) + (0,5) = (5,5)
+    Moving 5 units/sec horizontally AND vertically at the same time
+Creates faster total movement speed
+    sqrt(5^2 + 5^2) = sqrt(50) = 7.07
+7.07 diagonal speed (not the 5 that we wanted)
+
+Normalization: "take this vector and adjust its length to 1, but keep the direction the same"
+Normalized version is (5/7.07, 5/7.07) = (0.707, 0.707)
+Vector points in the same direction, but its magnitude is now 1
+
+Multiply by its max speed (5):
+    (0.707 * 5, 0.707 * 5) = (3.535, 3.535)
+Compute magnitude:
+    sqrt(3.535^2 + 3.535^2) = sqrt(12.5 + 12.5) = sqrt(25) = 5
+Now the diagonal speed is 5! 
+
+*/
+
+Vector3 direction = new Vector3(x, 0, y); // x horizontal, z is vertical, y is height. Vector3(x,0,y) used for ground movement.
+direction = direction.normalized;
+velocity = direction * speed;
+// OR
+Vector3 move = new Vector3(inputX, 0, inputY).normalized;
+
+/*
+
+magnitude of the vector: |v| = sqrt(x^2 + y^2 + z^2)
+normalization of the vector: normalized(v) = (x/|v|, y/|v|, z|v|)
+
+/*

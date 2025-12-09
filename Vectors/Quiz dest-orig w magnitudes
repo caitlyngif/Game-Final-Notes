@@ -1,0 +1,35 @@
+using UnityEngine;
+
+public class Zombie : MonoBehaviour
+{
+    GameObject player;
+    float th;
+    bool detectedPlayer;
+    private void Update()
+    {
+        if (detectedPlayer) {
+            if (Blank){
+                //Move towards the player
+            }else
+            {
+                //attack the player
+            }
+        }
+    }
+}
+
+/*
+
+We are implementing a zombie game where if a zombie detects the player, that is, detectedPlayer is true, the zombie chases the player. 
+We want the zombie to chase the player while they are farther than a threshold, named th, and otherwise, attack the player. 
+Select all the options that we can write in the blank to implement this mechanic. 
+
+Answer:
+Vector3.Distance(transform.position, player.transform.position) > th
+OR
+(transform.position - player.transform.position).sqrMagnitude > th
+
+Destination - Origin
+sqrMagnitude gets the magnitude of the Vector, since Vector3.Magnitude is computationally expensive.
+
+*/
