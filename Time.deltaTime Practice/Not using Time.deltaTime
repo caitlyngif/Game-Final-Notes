@@ -1,0 +1,20 @@
+using UnityEngine;
+
+public class Turret : MonoBehaviour{
+    float speed = 0.1f;
+    float AttackPeriod = 6f;
+    float TimeUntilNextAttack;
+
+    void Update(){
+        TimeUntilNextAttack -= speed;
+        if (TimeUntilNextAttack <= 0){
+            Shoot(){
+                TimeUntilNextAttack = AttackPeriod;
+            }
+        }    
+    }
+
+    void Shoot(){
+        Debug.Log("Shooting one bullet");
+    }
+}
