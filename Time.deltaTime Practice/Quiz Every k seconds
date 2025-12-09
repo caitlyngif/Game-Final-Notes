@@ -1,0 +1,23 @@
+using UnityEngine;
+
+public class Machine : MonoBehaviour
+{
+    float speed = 0.1f;
+    float wait = 3f;
+    float timeRemaining;
+
+    void Update()
+    {
+        timeRemaining -= speed;
+        if (timeRemaining <= 0)
+        {
+            Print();
+            timeRemaining = wait;
+        }
+    }
+
+    void Print()
+    {
+        Debug.Log("Print");
+    }
+}
