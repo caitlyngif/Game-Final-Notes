@@ -1,0 +1,11 @@
+using UnityEngine;
+
+public class SpawnObject : MonoBehaviour
+{
+    [SerializeField] GameObject ball;
+    [SerializeField] Transform spawnpoint; // empty game object (where you want the ball to instantiate at)
+    public void Spawn()
+    {
+        Instantiate(ball, spawnpoint.position, spawnpoint.rotation);
+    }
+}
