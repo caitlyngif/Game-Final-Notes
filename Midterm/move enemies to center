@@ -1,0 +1,38 @@
+/*
+
+We want to implement a spell that creates a vortex that slowly pulls enemies toward its center. 
+Fill in the blanks below to implement this mechanic.
+
+Note: Do not use empty spaces unless absolutely necessary. Do not assume any other script exists in the game.
+
+*/
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Vortex:MonoBehaviour{
+
+    List<Enemy> targets;
+
+    public void Cast(Vector3 origin){
+        //The code for creating the effect and finding all enemies affected by the spell
+    }
+
+    void Update(){
+        //Drag the enemy towards the center (this game object's transform.position) of the spell
+        foreach(var enemy in targets){
+            var direction = (BLANK).normalized;
+            BLANK;
+        }
+    }
+}
+
+/*
+
+void Update(){
+    foreach(var enemy in targets){
+        var direction = (transform.position - enemy.transform.position).normalized;
+        enemy.transform.position += direction * Time.deltaTime;
+    }
+}
+
+*/

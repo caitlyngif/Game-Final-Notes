@@ -1,0 +1,58 @@
+/*
+
+In the code below, we want the player (with the Player component) to be able to open a chest, only if they are very close to. 
+To do so, we have added a trigger collider to the chest.
+Add code to the Chest class (attached to the chest) to make this work. Hint: you need to write two functions. 
+
+*/
+using UnityEngine;
+
+public class Player : MonoBehaviour
+{
+    public bool canOpen;
+    
+    //This function is called when the player presses the interact button to open the chest
+    public void OnTryOpen()
+    {
+        if (canOpen)
+        {
+                //player opens the chest
+        }
+        else
+        {
+            Debug.Log("Too far from the chest to open it");
+        }
+    }
+}
+public class Chest : MonoBehaviour
+{
+    [SerializeField] Player player;
+    //Your code goes here!
+}
+
+/*
+
+public class Chest : MonoBehaviour
+{
+    [SerializeField] Player player;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var player = other.GetComponent<Player>();
+        if (player != null)
+        {
+            player.canOpen = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        var player = other.GetComponent<Player>();
+        if (player != null)
+        {
+            player.canOpen = false;
+        }
+    }
+}
+
+*/

@@ -1,0 +1,61 @@
+/*
+
+The player must arrange multiple soldiers so that they form a straight horizontal line, standing side by side, and facing in the same direction. 
+To evaluate the arrangement, we compare every pair of soldiers and calculate two scores:
+    Score1 is 1 if the two soldiers are almost positioned next to each other in a straight line, and otherwise 0.
+    Score2 is 1 if the two soldiers are almost facing the same direction, and otherwise 0.
+
+Both scores should be calculated using the dot product of normalized vectors.
+Fill in the blanks with the correct dot product expressions to compute Score1 and Score2.
+
+Hint: Vector3.Dot returns 
+1 → perfectly aligned (same direction)
+0 → perpendicular
+-1 → opposite directions
+
+*/
+using System;
+using UnityEngine;
+
+public float CalculateScore(Transform[] pieces)
+{
+    float total = 0f;
+    int comparisons = 0;
+
+    for (int i = 0; i < pieces.Length; i++)
+    {
+        for (int j = i + 1; j < pieces.Length; j++)
+        {
+            // Straightness of line
+            bool straight = Score1(pieces[i], pieces[j]);
+
+            // Facing similarity
+            bool align = Score2(pieces[i], pieces[j]);
+
+            total += (align?1:0 + straight?1:0) * 0.5f; // weight both equally
+        }
+    }
+
+    return total;
+}
+public bool Score1(Transform a, Transform b){
+    return Math.Abs(Vector3.Dot(BLANK, BLANK)) BLANK;
+
+}
+public bool Score2(Transform a, Transform b){
+    return Vector3.Dot(BLANK, BLANK) BLANK;
+}
+
+/*
+
+public bool Score1(Transform a, Transform b){
+    return Math.Abs(Vector3.Dot(a.position - b.position, b.position - a.position)) > 0.9f;
+}
+    a.position-b.position and b.position - a.position are opposite directions on the same line
+    dot of opposite unit vectors = -1 -> Abs(-1) = 1
+
+public bool Score2(Transform a, Transform b){
+    return Vector3.Dot(a.forward, b.forward) > 0.9f;
+}
+
+*/

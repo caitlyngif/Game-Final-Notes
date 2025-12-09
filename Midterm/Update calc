@@ -1,0 +1,28 @@
+/*
+
+What is the value of y after two seconds if the framerate is 40fps?
+
+*/
+using UnityEngine;
+
+public class Test:MonoBehaviour{
+
+    int x = 4, y=0;
+
+    void Update(){
+
+        if(x%2==0){
+            y++;
+        }
+
+        x++;
+    }
+}
+
+/*
+
+At 40 fps, there are 80 frames in 2 seconds.
+Since x starts at 4 (even), y increments on frames 0,2,4,...,78 (total of 40 times).
+Therefore, y = 40 after 2 seconds.
+
+*/
